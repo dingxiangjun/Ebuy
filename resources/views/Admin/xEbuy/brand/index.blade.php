@@ -67,7 +67,7 @@
                                         {!! is_something('is_show', $brand) !!}
                                     </td>
                                     <td class="am-hide-sm-only">
-                                        <input type="text" name="sort_order" class="am-input-sm sort"
+                                        <input  type="text" name="sort_order" class="am-input-sm sort"
                                                value="{{$brand->sort_order}}">
                                     </td>
 

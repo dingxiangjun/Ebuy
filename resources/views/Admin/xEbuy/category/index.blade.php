@@ -67,7 +67,7 @@
                                 </td>
 
                                 <td class="am-hide-sm-only">
-                                    <input type="text" name="sort_order" class="am-input-sm"
+                                    <input  type="text" name="sort_order" class="am-input-sm"
                                            value="{{$category->sort_order}}">
                                 </td>
 

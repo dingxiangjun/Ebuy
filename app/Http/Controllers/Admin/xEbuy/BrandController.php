@@ -84,7 +84,7 @@ class BrandController extends CommonController
         $value = $brand->$attr ? false : true;
         $brand-> $attr=$value;
         $brand->save();
-        Category::clear();
+
     }
 
     function upload(){

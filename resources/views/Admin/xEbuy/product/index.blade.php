@@ -18,7 +18,7 @@
                         <a type="button" class="am-btn am-btn-default" href="{{route('admin.xEbuy.product.create')}}">
                             <span class="am-icon-plus"></span> 新增
                         </a>
-                        <button type="button" class="am-btn am-btn-default" id="destroy_checked">
+                        <a href="{{route('admin.xEbuy.product.destroy_checked}}" class="am-btn am-btn-default" id="destroy_checked">
                             <span class="am-icon-trash-o"></span> 删除
                         </button>
                     </div>
@@ -124,7 +124,7 @@
                                            name="checked_id[]"/></td>
                                 <td>{{$product->id}}</td>
                                 <td>
-                                    @if($product->thumb)<img src="{{$product->thumb}}" alt="" class="thumb">@endif
+                                    @if($product->thumb)<img width="100" height="50" src="{{$product->thumb}}" alt="" class="thumb">@endif
                                 </td>
                                 <td>
                                     {{$product->name}}
@@ -176,6 +176,14 @@
                         @endforeach
                             </tbody>
                         </table>
+                        共 {{$products->total()}} 条记录
+
+                    <div class="am-cf">
+                        <div class="am-fr">
+                            {!! $products->appends(Request::all())->links() !!}
+                        </div>
+                    </div>
+                    <hr/>
                     </form>
                 </div>
 
@@ -226,6 +234,7 @@
                 });
             });
 
+
             //是否...
             $(".is_something").click(function () {
                 var _this = $(this);
@@ -244,6 +253,12 @@
                 });
             });
 
+            //全选
+            $("#checked").click(function(){
+
+                $('.checked_id').prop('checked', this.checked);
+            });
+
             //删除所选
             $('#destroy_checked').click(function () {
                 var length = $(".checked_id:checked").length;
@@ -256,7 +271,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: "/xShop/product/destroy_checked",
+                    url: "admin/xEbuy/product/destroy_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;

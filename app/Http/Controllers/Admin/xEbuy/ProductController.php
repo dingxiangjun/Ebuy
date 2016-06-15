@@ -50,7 +50,12 @@ class ProductController extends CommonController
     }
 
     public function store(Request $request){
-        return $request->all();
+        $data = $request->except(['stock', 'brand_id', 'file', 'imgs']);
+        $data['stock'] = $request->stock == '无限' ? '-1' : $request->stock;
+        $data['brand_id'] = $request->brand_id == '-1' ? '' : $request->brand_id;
+        $product = Product::create($data);  
+        return redirect('/admin/xEbuy/product')->with('success', '添加成功');
+        //return back()->with('success', '新增成功~');
     }
 
     function is_something(Request $request)
@@ -84,6 +89,10 @@ class ProductController extends CommonController
         }*/
         Product::destroy($id);
         return back()->with('success', '被删商品已进入回收站~');
+    }
+
+    function destroy_checked(Request $request){
+        return $request->all();
     }
 
 }

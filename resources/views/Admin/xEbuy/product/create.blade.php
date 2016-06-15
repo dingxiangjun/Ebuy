@@ -40,8 +40,14 @@
 
                                         <select data-am-selected="{btnWidth: '100%',  btnStyle: 'secondary', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
                                                 name="category_id">
-
-                                           
+                                            @foreach($categories as $category)
+                                                <optgroup label="{{$category->name}}">
+                                                    @foreach($category->children as $c)
+                                                        <option value="{{$c->id}}" @if($c->id == Request::input('category_id')) selected @endif>
+                                                            {{$c->name}}
+                                                        </option>
+                                                    @endforeach
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -75,7 +81,10 @@
                                             <option value="-1">
                                                 请选择
                                             </option>
-                                            
+                                            @foreach($brands as $brand)
+                                            <option value="{{$brand->id}}" @if($brand->id ==            Request::input('brand_id')) selected @endif>
+                                                            {{$brand->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -163,17 +172,13 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
 
                             <div class="am-tab-panel am-fade" id="tab2">
                                 <div class="am-g am-margin-top-sm">
                                     <div class="am-u-sm-12 am-u-md-12">
                                         <div id="markdown">
-                                            <textarea id="editor_id" name="content[]" style="height: 300px"></textarea>
+                                            <textarea id="editor_id" name="content" style="height: 300px"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -183,8 +188,8 @@
                             <div class="am-tab-panel am-fade" id="tab4">
                                 <div class="am-g am-margin-top-sm">
                                     <div class="am-u-sm-12 am-u-md-12">
-                                        <div id="markdown">
-                                            <textarea id="container" name="content[]" style="height: 300px"></textarea>
+                                        <div id="markdown" >
+                                            <script id="container" name="content" type="text/plain">升水</script>
                                         </div>
                                     </div>
                                 </div>
@@ -259,15 +264,6 @@
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');
-        var ue = UE.getContent();
-        ue.ready(function() {
-            //设置编辑器的内容
-            ue.setContent('hello');
-            //获取html内容，返回: <p>hello</p>
-            /*var html = ue.getContent();*/
-            //获取纯文本内容，返回: hello
-            var txt = ue.getContentTxt();
-        });
     </script>
 
 @endsection
