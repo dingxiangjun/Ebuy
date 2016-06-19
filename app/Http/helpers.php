@@ -41,3 +41,4 @@ function show_stock($stock)
 {
     return $stock == '-1' ? '无限' : $stock;
 }
+

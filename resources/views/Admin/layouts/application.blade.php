@@ -42,8 +42,8 @@
                     <select data-am-selected="{btnStyle: 'danger', btnSize: 'sm'}" id="change_system">
                         
                         
-                            <option value="admin/xEbuy">商城</option>
-                            <option value="admin/xCms">内容系统</option>
+                            <option value="/admin/xEbuy">商城</option>
+                            <option value="/admin/xCms">内容系统</option>
                         
                     </select>
                 </div>

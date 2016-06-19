@@ -42,7 +42,7 @@
                         <table class="am-table am-table-striped am-table-hover table-main">
                             <thead>
                             <tr>
-                                <th class="table-check"><input type="checkbox"/></th>
+                                <th class="table-check"><input type="checkbox" id="checked" /></th>
                                 <th class="table-id">ID</th>
                                 <th class="table-title">缩略图</th>
                                 <th class="table-type">品牌名称</th>
@@ -55,12 +55,12 @@
                             </thead>
                             @foreach($brands as $brand)
                                 <tr data-id="{{$brand->id}}">
-                                    <td><input type="checkbox"/></td>
+                                    <td><input type="checkbox" name="checked_id[]" class="checked_id" /></td>
                                     <td>{{$brand->id}}</td>
                                     <td><a href="#"><img width="70" height="60" src="{{$brand->thumb}}"/></a></td>
                                     <td>{{$brand->name}}</td>
                                     <td class="am-hide-sm-only">
-                                        <a class="am-badge am-badge-secondary" href="">查看商品</a>
+                                        {!! show_brand_products($brand) !!}
                                     </td>
                                     <td class="am-hide-sm-only">{{$brand->desc}}</td>
                                     <td class="am-hide-sm-only">
@@ -141,7 +141,7 @@
                     url:"/admin/xEbuy/brand/is_something",
                     data: data,
                     success: function () {
-                        
+                        _this.toggleClass('am-icon-close am-icon-check');
                     }
                 });
             })

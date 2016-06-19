@@ -14,4 +14,18 @@ $.ajaxSetup({
     $(window).load(function () {
         NProgress.done();
     })
+
+
+    //切换栏目
+    $("#change_system").change(function () {
+        var url = $(this).val();
+        location.href = url;
+    })
+
+    //全选
+    $("#checked").click(function(){
+        $('.checked_id').prop('checked', this.checked);
+    }); 
 })(jQuery);
+
+

@@ -44,9 +44,11 @@
         </li>
 
         <li>
-            <a href="/admin/xEbuy/product/trash" class="">
+            <a href="/admin/xEbuy/product/trash" class="{{$_product_trash or ''}}">
                 <span class="am-icon-trash-o"></span> 商品回收站
-                <span class="am-badge am-badge-danger am-margin-right am-fr am-radius"></span>
+                <span class="am-badge am-badge-danger am-margin-right am-fr am-radius">
+                    {{ \App\Model\xEbuy\Product::onlyTrashed()->count() }}
+                </span>
             </a>
         </li>
     {{--</ul>--}}

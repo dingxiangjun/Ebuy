@@ -9,7 +9,7 @@ class Product extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $guarded = [];
+    protected $guarded = ['editorValue'];
 
 
     //每个商品都属于某一个品牌

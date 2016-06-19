@@ -23,6 +23,7 @@ class BrandController extends CommonController
 
     public function index(Request $request)
     {
+
         $where = function ($query) use ($request) {
             if ($request->has('keyword') && $request->keyword != '') {
                 $search = "%" . $request->keyword . "%";
@@ -30,7 +31,7 @@ class BrandController extends CommonController
             }
         };
 
-        $brands = Brand::where($where)->orderBy('sort_order')->paginate(5);
+        $brands = Brand::with('products')->where($where)->orderBy('sort_order')->paginate(5);
         return view('Admin.xEbuy.brand.index')->with('brands', $brands);
     }
 
@@ -48,9 +49,10 @@ class BrandController extends CommonController
 
     public function destroy($id)
     {
-        
-        $brand=Brand::find($id);
-        $brand->destroy($id);
+        if (!Brand::check_products($id)) {
+            return back()->with('error', '当前品牌下有商品，请先将对应商品删除后再尝试删除~');
+        }
+        Brand::destroy($id);
         return redirect('/admin/xEbuy/brand')->with('error', '删除成功');
     }
 

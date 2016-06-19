@@ -24,6 +24,14 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
         Route::delete('destroy_checked', 'ProductController@destroy_checked');
         Route::delete('destroy_gallery', 'ProductController@destroy_gallery');
         Route::patch('is_something', 'ProductController@is_something');
+
+        //回收站
+        Route::get('trash', 'ProductController@trash');
+        Route::get('restore/{product}/', 'ProductController@restore');
+        Route::delete('force_destroy/{product}/', 'ProductController@force_destroy');
+        Route::delete('force_destroy_checked', 'ProductController@force_destroy_checked');
+        Route::post('restore_checked', 'ProductController@restore_checked');
+
     });
     Route::resource('product', 'ProductController');
     

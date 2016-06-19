@@ -1,5 +1,12 @@
 @extends('Admin.layouts.application')
-
+@section('css')
+    <link rel="stylesheet" href="/common/daterangepicker/daterangepicker.css">
+    <style>
+        .thumb {
+            max-height: 60px;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="admin-content">
         <div class="admin-content-body">
@@ -18,7 +25,7 @@
                         <a type="button" class="am-btn am-btn-default" href="{{route('admin.xEbuy.product.create')}}">
                             <span class="am-icon-plus"></span> 新增
                         </a>
-                        <a href="{{route('admin.xEbuy.product.destroy_checked}}" class="am-btn am-btn-default" id="destroy_checked">
+                        <button type="button" class="am-btn am-btn-default" id="destroy_checked">
                             <span class="am-icon-trash-o"></span> 删除
                         </button>
                     </div>
@@ -48,6 +55,18 @@
 
                                  @endforeach
                                 </optgroup>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="am-form-group">
+                        <select data-am-selected="{btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                name="brand_id">
+                                <option value="-1">所有品牌</option>
+                            @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}" @if($brand->id == Request::input('brand_id')) selected @endif>
+                                            {{$brand->name}}
+                                    </option>
                             @endforeach
                         </select>
                     </div>
@@ -192,13 +211,17 @@
 
         <footer class="admin-content-footer">
             <hr>
-            <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+            <p class="am-padding-left">? 2014 AllMobilize, Inc. Licensed under MIT license.</p>
         </footer>
         <span id="on" data-am-modal="{target: '#my-alert'}"></span>
     </div>
 @endsection
 
 @section('js')
+    <script src="/common/daterangepicker/moment.js"></script>
+    <script src="/common/moment/locale/zh-cn.js"></script>
+    <script src="/common/daterangepicker/daterangepicker.js"></script>
+    <script src="/common/js/daterange_config.js"></script>
     <script>
         $(function () {
              //库存
@@ -253,12 +276,7 @@
                 });
             });
 
-            //全选
-            $("#checked").click(function(){
-
-                $('.checked_id').prop('checked', this.checked);
-            });
-
+    
             //删除所选
             $('#destroy_checked').click(function () {
                 var length = $(".checked_id:checked").length;
@@ -271,7 +289,7 @@
 
                 $.ajax({
                     type: "DELETE",
-                    url: "admin/xEbuy/product/destroy_checked",
+                    url: "/admin/xEbuy/product/destroy_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;
