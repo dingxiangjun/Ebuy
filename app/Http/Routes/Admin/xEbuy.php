@@ -3,6 +3,7 @@
  * xEbuy 商城系统
  */
 Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function () {
+    
     Route::get('/', 'IndexController@index');
     //商品品牌
     Route::group(['prefix' => 'brand'], function () {
@@ -20,6 +21,7 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
 
     //商品管理
     Route::group(['prefix' => 'product'], function () {
+        
         Route::patch('change_stock', 'ProductController@change_stock');
         Route::delete('destroy_checked', 'ProductController@destroy_checked');
         Route::delete('destroy_gallery', 'ProductController@destroy_gallery');

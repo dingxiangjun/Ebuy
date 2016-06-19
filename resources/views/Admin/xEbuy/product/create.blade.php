@@ -82,7 +82,7 @@
                                                 请选择
                                             </option>
                                             @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}" @if($brand->id ==            Request::input('brand_id')) selected @endif>
+                                            <option value="{{$brand->id}}" @if($brand->id ==Request::input('brand_id')) selected @endif>
                                                             {{$brand->name}}</option>
                                             @endforeach
                                         </select>

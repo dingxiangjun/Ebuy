@@ -60,15 +60,16 @@
                     </div>
 
                     <div class="am-form-group">
-                        <select data-am-selected="{btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-                                name="brand_id">
-                                <option value="-1">所有品牌</option>
+                        {{ buildSelect($brands,'brand_id','id','name',Request::input('brand_id')) }}
+                        {{--<select data-am-selected="{btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+                                         name="brand_id">
+                            <option value="-1">所有品牌</option>
                             @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}" @if($brand->id == Request::input('brand_id')) selected @endif>
-                                            {{$brand->name}}
-                                    </option>
+                                <option value="{{$brand->id}}" @if($brand->id == Request::input('brand_id')) selected @endif>
+                                    {{$brand->name}}
+                                </option>
                             @endforeach
-                        </select>
+                        </select>--}}
                     </div>
 
                     <div class="am-form-group">

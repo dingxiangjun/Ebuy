@@ -42,3 +42,62 @@ function show_stock($stock)
     return $stock == '-1' ? '无限' : $stock;
 }
 
+
+function buildSelect($tableName, $selectName, $valueFieldName, $textFieldName, $selectedValue = '')
+{
+    $select = "<select data-am-selected='{btnSize: sm, maxHeight: 360, searchBox: 1}' name=$selectName><option value='-1'>所有品牌</option>";
+    foreach ($tableName as $k => $v) {
+        $value = $v[$valueFieldName];
+        $text = $v[$textFieldName];
+        if ($selectedValue && $selectedValue == $value) {
+            $selected = 'selected="selected"';
+        } else {
+            $selected = '';
+        }
+        $select .= "<option $selected value='$value'>$text</option>";
+    }
+
+    $select .= "</select>";
+    echo $select;
+
+}
+
+function buildSelectL($tableName, $selectName, $valueFieldName, $textFieldName, $selectedValue = '')
+{
+    $select = "<select data-am-selected='{btnWidth: 100%, btnStyle: secondary, btnSize: sm, maxHeight: 360, searchBox: 1}' name=$selectName>
+        <option value='-1'>请选择</option>";
+    foreach ($tableName as $k => $v) {
+        $value = $v[$valueFieldName];
+        $text = $v[$textFieldName];
+        if ($selectedValue && $selectedValue == $value) {
+            $selected = 'selected="selected"';
+        } else {
+            $selected = '';
+        }
+        $select .= "<option $selected value='$value'>$text</option>";
+    }
+
+    $select .= "</select>";
+    echo $select;
+
+}
+
+
+/*<select data-am-selected="{btnWidth: '100%',  btnStyle: 'secondary', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
+name="brand_id">
+<option value="-1">请选择</option>
+                    @foreach($brands as $brand)
+                            <option value="{{$brand->id}}">
+                                  {{$brand->name}}</option>
+                    @endforeach
+                     /select>*/
+
+/*<select data-am-selected="{btnSize: 'sm', maxHeight: 360, searchBox: 1}" name="brand_id">
+        <option value="-1">所有品牌</option>
+        @foreach($brands as $brand)
+            <option value="{{$brand->id}}" @if($brand->id == Request::input('brand_id')) selected @endif>
+                    {{$brand->name}}
+            </option>
+        @endforeach
+</select>*/
+
