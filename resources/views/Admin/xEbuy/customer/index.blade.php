@@ -1,6 +1,6 @@
 @extends('Admin.layouts.application')
 @section('css')
-    <link rel="stylesheet" href="/assets/xSystem/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="/common/daterangepicker/daterangepicker.css">
     <style>
         .thumb {
             max-height: 60px;
