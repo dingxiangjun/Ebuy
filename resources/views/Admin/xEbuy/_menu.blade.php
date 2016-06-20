@@ -37,7 +37,7 @@
         </li>
 
         <li>
-            <a href="{{ route('admin.xEbuy.brand.index') }}" class="{{ $_brand or '' }}">
+            <a href="{{route('admin.xEbuy.brand.index') }}" class="{{ $_brand or '' }}">
                 <span class="am-icon-apple"></span> 商品品牌
                 <span class="am-badge am-badge-success am-margin-right am-fr am-radius">{{ \App\Model\xEbuy\Brand::count() }}</span>
             </a>
@@ -59,7 +59,7 @@
         <span class="am-icon-bank"></span>
         商店管理 <span class="am-icon-angle-right am-fr am-margin-right"></span>
     </a>
-    <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-shop">
+    <ul class="am-list am-collapse admin-sidebar-sub {{ $_xEbuy or '' }}" id="collapse-shop">
         <li>
             <a href="/admin/xEbuy/wechat" class="am-cf">
                 <span class="am-icon-list-ol"></span> 微信自定义菜单
@@ -73,15 +73,18 @@
         </li>
 
         <li>
-            <a href="" class="">
+            <a href="{{route('admin.xEbuy.customer.index')}}" class="{{$_customer or ''}}">
                 <span class="am-icon-user"></span> 会员管理</span>
+                <span class="am-badge am-badge-success am-margin-right am-fr am-radius">{{ \App\Model\xEbuy\Customer::count() }}</span>
             </a>
         </li>
 
         <li>
-            <a href="" class="">
+            <a href="{{route('admin.xEbuy.express.index')}}" class="{{$_express or ''}}">
                 <span class="am-icon-plane"></span> 快递运费
-                <span class="am-badge am-badge-warning am-margin-right am-fr am-radius"></span>
+                <span class="am-badge am-badge-warning am-margin-right am-fr am-radius">
+                    {{ \App\Model\xEbuy\Express::count() }}
+                </span>
             </a>
         </li>
     </ul>

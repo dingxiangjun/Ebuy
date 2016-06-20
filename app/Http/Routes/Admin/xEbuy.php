@@ -36,6 +36,17 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
 
     });
     Route::resource('product', 'ProductController');
+
+
+    //快递运费
+    Route::group(['prefix' => 'express'], function () {
+        Route::patch('sort_order', 'ExpressController@sort_order');
+        Route::patch('is_something', 'ExpressController@is_something');
+    });
+    Route::resource('express', 'ExpressController');
+
+    //会员管理
+    Route::resource('customer', 'CustomerController');
     
 
 });

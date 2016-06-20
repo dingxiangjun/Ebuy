@@ -79,7 +79,7 @@
                     <div class="am-form-group">
                         <div class="am-btn-group" data-am-button="">
                             <label class="am-btn am-btn-default am-btn-sm am-radius @if(Request::input('is_top') == 1) am-active @endif">
-                                <input type="checkbox" name="is_top" value="1" @if(Request::input('is_top') == 1) checked @endif> 置顶
+                                <input onclick="this." type="checkbox" name="is_top" value="1" @if(Request::input('is_top') == 1) checked @endif> 置顶
                             </label>
                             <label class="am-btn am-btn-default am-btn-sm am-radius @if(Request::input('is_recommend') == 1) am-active @endif">
                                 <input type="checkbox" name="is_recommend" value="1" @if(Request::input('is_recommend') == 1) checked @endif> 推荐
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="am-form-group">
+                    <div  class="am-form-group">
                         <select data-am-selected="{btnSize: 'sm'}" name="is_onsale" id="">
                             <option value="-1" @if(Request::input('is_onsale') == '-1') selected @endif>上架状态</option>
                             <option value="1" @if(Request::input('is_onsale') == '1') selected @endif>上架</option>

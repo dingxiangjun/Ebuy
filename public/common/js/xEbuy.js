@@ -27,5 +27,3 @@ $.ajaxSetup({
         $('.checked_id').prop('checked', this.checked);
     }); 
 })(jQuery);
-
-
