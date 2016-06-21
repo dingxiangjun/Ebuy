@@ -24,4 +24,9 @@ class Product extends Model
         return $this->belongsTo('App\Model\xEbuy\ProductCategory');
     }
 
+    public function order_products()
+    {
+        return $this->hasMany('App\Model\xEbuy\OrderProduct');
+    }
+
 }

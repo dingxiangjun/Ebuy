@@ -61,43 +61,51 @@ function buildSelect($tableName, $selectName, $valueFieldName, $textFieldName, $
     echo $select;
 
 }
-
-function buildSelectL($tableName, $selectName, $valueFieldName, $textFieldName, $selectedValue = '')
+/**
+ * 订单状态
+ * @param $status
+ * @return mixed
+ */
+function order_status($status)
 {
-    $select = "<select data-am-selected='{btnWidth: 100%, btnStyle: secondary, btnSize: sm, maxHeight: 360, searchBox: 1}' name=$selectName>
-        <option value='-1'>请选择</option>";
-    foreach ($tableName as $k => $v) {
-        $value = $v[$valueFieldName];
-        $text = $v[$textFieldName];
-        if ($selectedValue && $selectedValue == $value) {
-            $selected = 'selected="selected"';
-        } else {
-            $selected = '';
-        }
-        $select .= "<option $selected value='$value'>$text</option>";
-    }
-
-    $select .= "</select>";
-    echo $select;
-
+    $info = config('xSystem.order_status');
+    return $info["$status"];
 }
 
+/**
+ * 1=> '下单',       //待支付
+ * 2=> '付款',       //待发货
+ * 3=> '配货',
+ * 4=> '出库',       //待收货
+ * 5=> '交易成功',    //已完成
+ */
+function order_color($status)
+{
+    switch ($status) {
+        case '1':
+            return 'uc-order-item-pay';         //橙
+            break;
+        case '2':
+            return 'uc-order-item-shipping';    //红
+            break;
+        case '3':
+            return 'uc-order-item-shipping';    //红
+            break;
+        case '4':
+            return 'uc-order-item-receiving';   //绿
+            break;
+        case '5':
+            return 'uc-order-item-finish';      //灰
+            break;
+        default:
+            return 'uc-order-item-finish';
+    }
+}
 
-/*<select data-am-selected="{btnWidth: '100%',  btnStyle: 'secondary', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-name="brand_id">
-<option value="-1">请选择</option>
-                    @foreach($brands as $brand)
-                            <option value="{{$brand->id}}">
-                                  {{$brand->name}}</option>
-                    @endforeach
-                     /select>*/
-
-/*<select data-am-selected="{btnSize: 'sm', maxHeight: 360, searchBox: 1}" name="brand_id">
-        <option value="-1">所有品牌</option>
-        @foreach($brands as $brand)
-            <option value="{{$brand->id}}" @if($brand->id == Request::input('brand_id')) selected @endif>
-                    {{$brand->name}}
-            </option>
-        @endforeach
-</select>*/
-
+function time_format($attr, $datetime)
+{
+    if ($datetime == "") {
+        return "";
+    }
+    return date($attr, strtotime($datetime));
+}

@@ -47,6 +47,10 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
 
     //会员管理
     Route::resource('customer', 'CustomerController');
+
+    //订单管理
+    Route::resource('order', 'OrderController');
+
     
 
 });

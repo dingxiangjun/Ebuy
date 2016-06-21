@@ -76,7 +76,7 @@ class ProductController extends CommonController
             ->orderBy('created_at')
             ->paginate(config('xSystem.page_size'));
 
-       $this->attributes();
+        $this->attributes();
         return view('Admin.xEbuy.product.index')->with('products', $products);
          
     }

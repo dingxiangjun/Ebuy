@@ -66,9 +66,11 @@
             </a>
         </li>
         <li>
-            <a href="" class="">
+            <a href="{{route('admin.xEbuy.order.index')}}" class="{{$_order or ''}}">
                 <span class="am-icon-list-alt"></span> 订单管理
-                <span class="am-badge am-badge-secondary am-margin-right am-fr am-radius"></span>
+                <span class="am-badge am-badge-secondary am-margin-right am-fr am-radius">
+                    {{ \App\Model\xEbuy\Order::count() }}
+                </span>
             </a>
         </li>
 
