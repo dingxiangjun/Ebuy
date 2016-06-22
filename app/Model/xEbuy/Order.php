@@ -8,6 +8,7 @@ class Order extends Model
 {
 
     protected $guarded = [];
+    
     public function express()
     {
         return $this->belongsTo('App\Model\xEbuy\Express');

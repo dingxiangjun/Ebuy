@@ -21,6 +21,7 @@ class IndexController extends CommonController
     }
 
     function index(){
+        
         return view('Admin.xEbuy.index');
     }
   

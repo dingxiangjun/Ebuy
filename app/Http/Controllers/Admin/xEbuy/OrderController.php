@@ -72,12 +72,14 @@ class OrderController extends CommonController
             ->with('order_products.product', 'customer', 'address')
             ->orderBy('created_at', 'desc')
             ->paginate(config('xSystem.page_size'));
+
         return view('Admin.xEbuy.order.index')->with('orders', $orders);
     }
 
     public function show($id){
         $expresses = Express::orderBy('sort_order')->get();
         $order=Order::with('order_products.product','customer','address','express')->find($id);
+       
         return view('Admin.xEbuy.order.show')->with(['expresses'=>$expresses,'order'=>$order]);
     }
 }

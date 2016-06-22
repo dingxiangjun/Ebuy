@@ -17,8 +17,6 @@ return [
 
     'systems' => [
         'xEbuy' => '长乐小卖部',
-        'xCms' => 'PHP武汉官网',
-        'xCrm' => '学生管理',
         'xAd' => '广告中心',
         'xSystem' => '系统管理',
     ],

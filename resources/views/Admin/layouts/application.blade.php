@@ -40,11 +40,11 @@
             <li>
                 <div style="line-height: 50px;">
                     <select data-am-selected="{btnStyle: 'danger', btnSize: 'sm'}" id="change_system">
-                        
-                        
-                            <option value="/admin/xEbuy">商城</option>
-                            <option value="/admin/xCms">内容系统</option>
-                        
+                        @foreach($systems as $url=>$system)
+                            <option value="/admin/{{$url}}" @if($_system==$url) selected @endif>
+                                {{$system}}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
             </li>

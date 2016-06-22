@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => 'daily',
 
     /*
     |--------------------------------------------------------------------------
@@ -157,7 +157,12 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+            
+        //日志管理
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
+
+        
     ],
 
     /*

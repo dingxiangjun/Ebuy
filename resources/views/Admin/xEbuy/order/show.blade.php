@@ -1,4 +1,4 @@
-@extends('Admin.layouts.application')
+    @extends('Admin.layouts.application')
 @section('css')
     <link rel="stylesheet" href="/assets/xSystem/vendor/daterangepicker/daterangepicker.css">
     <style>

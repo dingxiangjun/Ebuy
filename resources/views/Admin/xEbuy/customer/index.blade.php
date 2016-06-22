@@ -88,7 +88,7 @@
                                 <td>
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
-                                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary" href="/xShop/order?customer_id={{ $customer->id }}">
+                                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary" href="{{route('admin.xEbuy.order.index',['customer_id'=>$customer->id])}}">
                                                 <span class="am-icon-list-alt"></span> 查看订单
                                             </a>
                                         </div>
