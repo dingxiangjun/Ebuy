@@ -9,7 +9,11 @@
     {{--</a>--}}
     {{--<ul class="am-list am-collapse admin-sidebar-sub"--}}
         {{--id="collapse-products">--}}
-
+        <li>
+            <a href="{{route('log-viewer::dashboard')}}" onclick="$(this).addClass('am-active')" class="">
+                <span class="am-icon-th-list"></span> 日志管理
+            </a>
+        </li>
         <li>
             <a href="{{route('admin.xEbuy.product.index')}}" class="{{$_product or ''}}">
                 <span class="am-icon-th-list"></span> 商品列表
