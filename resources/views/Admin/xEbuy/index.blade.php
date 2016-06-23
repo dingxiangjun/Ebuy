@@ -13,7 +13,7 @@
         <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
         <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a></li>
       </ul>
-      <div id="main" style="width: 1600px;height:600px;"></div>
+      <div id="main" style="width: 96.5%;height:600px;margin-left: 20px"></div>
     </div>
 
     <footer class="admin-content-footer">
