@@ -21,6 +21,7 @@ Route::group(['domain' => 'ebuy.app'], function () {
 	Route::group(['middleware' => 'auth'], function () {
 			//xEbuy 商城系统
             require 'Routes/Admin/xEbuy.php';
+            require 'Routes/Admin/xAd.php';
             require 'Routes/Admin/xSystem.php';
 	
 	});

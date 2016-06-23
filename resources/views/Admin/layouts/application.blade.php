@@ -47,6 +47,7 @@
                             </option>
                         @endforeach
                     </select>
+
                 </div>
             </li>
             <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
@@ -70,7 +71,7 @@
     <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
         <div class="am-offcanvas-bar admin-offcanvas-bar">
             <ul class="am-list admin-sidebar-list">
-                @include("Admin.xEbuy._menu")
+                @include("Admin.$_system._menu")
             </ul>
 
             <div class="am-panel am-panel-default admin-sidebar-panel">
