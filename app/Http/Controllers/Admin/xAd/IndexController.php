@@ -21,7 +21,7 @@ class IndexController extends CommonController
     }
 
     function index(){
-        
+        return '11';
         return view('Admin.xAd.index');
     }
   
