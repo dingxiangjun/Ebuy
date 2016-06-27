@@ -2,18 +2,34 @@
 
 @section('content')
   <div class="admin-content">
-    <div class="admin-content-body">
-      <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
-      </div>
 
-      <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-        <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增页面11<br/>2300</a></li>
-        <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>成交订单<br/>308</a></li>
-        <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
-        <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a></li>
-      </ul>
-      
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">管理首页</strong> /
+        <small>Manage Home</small>
+      </div>
+    </div>
+
+    @include('Admin.layouts._flash')
+
+    <ul class="am-avg-sm-1 am-avg-md-3 am-margin am-padding am-text-center admin-content-list ">
+      <li>
+        <a href="{{route('admin.xAd.ad.create')}}" class="am-text-danger">
+          <span class="am-icon-btn am-icon-plus"></span><br/>添加新广告
+        </a>
+      </li>
+
+      <li>
+        <a href="{{route('admin.xAd.category.index')}}" class="am-text-warning">
+          <span class="am-icon-btn am-icon-tv"></span><br/>广告分类<br/>{{ \App\Model\xAd\AdCategory::count() }}
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ route('admin.xAd.ad.index') }}" class="am-text-success">
+          <span class="am-icon-btn am-icon-picture-o"></span><br/>广告列表<br/>{{ \App\Model\xAd\Ad::count() }}
+        </a>
+      </li>
+    </ul>
     </div>
 
     <footer class="admin-content-footer">
