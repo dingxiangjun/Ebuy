@@ -1,5 +1,4 @@
 @extends('Admin.layouts.application')
-
 @section('css')
     <style>
         .thumb {
@@ -11,11 +10,10 @@
 @section('content')
     <div class="admin-content">
         <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品回收站</strong> /
-                <small>Products Trash</small>
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">广告回收站</strong> /
+                <small>Ads Trash</small>
             </div>
         </div>
-
         @include('Admin.layouts._flash')
 
         <div class="am-g">
@@ -42,46 +40,36 @@
                             <th class="table-check"><input type="checkbox" id="checked"/></th>
                             <th class="table-id">编号</th>
                             <th>缩略图</th>
-
-                            <th class="table-title">商品名称</th>
-                            <th>单价</th>
-                            <th class="table-category">所属分类</th>
-                            <th class="table-brand">品牌</th>
+                            <th class="table-title">标题</th>
+                            <th class="table-category">所属栏目</th>
                             <th class="table-date am-hide-sm-only">发布日期 / 删除日期</th>
                             <th class="table-set">操作</th>
                         </tr>
                         </thead>
                         <tbody>
 
-
-                        @foreach($products as $product)
+                        @foreach($ads as $ad)
                             <tr>
-                                <td><input type="checkbox" value="{{$product->id}}" class="checked_id"
+                                <td><input type="checkbox" value="{{$ad->id}}" class="checked_id"
                                            name="checked_id[]"/>
                                 </td>
-                                <td class="product_id">{{ $product->id }}</td>
-                                <td class="product_thumb">
-                                    @if($product->thumb)<img src="{{$product->thumb}}" alt="" class="thumb">@endif
-                                </td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->category->name }}</td>
-                                <td>{{$product->brand->name or ''}}</td>
-                                <td>{{$product->created_at}} / {{$product->deleted_at}}</td>
 
+                                <td class="ad_id">{{ $ad->id }}</td>
+                                <td class="ad_thumb">
+                                    @if($ad->thumb)<img src="{{$ad->thumb}}" alt="" class="thumb">@endif
+                                </td>
+                                <td>{{ $ad->title }}</td>
+                                <td>{{ $ad->category->name }}</td>
+                                <td>{{$ad->created_at}} / {{$ad->deleted_at}}</td>
                                 <td>
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a class="am-btn am-btn-default am-btn-xs am-text-secondary"
-                                               href="{{url('/admin/xEbuy/product/restore',$product->id)}}">
-                                                
+                                               href="/xAd/ad/{{$ad->id}}/restore">
                                                 <span class="am-icon-reply"></span> 还原
                                             </a>
                                             <a class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                               href="{{url('/admin/xEbuy/product/force_destroy',$product->id)}}"
-                                               
-
-
+                                               href="/xAd/ad/{{$ad->id}}/force_destroy"
                                                data-method="delete" data-token="{{csrf_token()}}" data-confirm="确定删除吗？">
                                                 <span class="am-icon-trash-o"></span> 删除
                                             </a>
@@ -94,20 +82,18 @@
                         </tbody>
                     </table>
 
-                    共 {{$products->total()}} 条记录
+                    共 {{$ads->total()}} 条记录
 
                     <div class="am-cf">
                         <div class="am-fr">
-                            {!! $products->links() !!}
+                            {!! $ads->links() !!}
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 @endsection
-
 
 @section('js')
     <script>
@@ -123,7 +109,7 @@
                 var checked_id = $(".checked_id:checked").serialize();
                 $.ajax({
                     type: "DELETE",
-                    url: "/admin/xEbuy/product/force_destroy_checked",
+                    url: "/xAd/ad/force_destroy_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;
@@ -142,7 +128,7 @@
                 var checked_id = $(".checked_id:checked").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/admin/xEbuy/product/restore_checked",
+                    url: "/xAd/ad/restore_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;

@@ -25,7 +25,7 @@ class OrderController extends CommonController
     }
     
     public function index(Request $request){
-
+       
         //多条件查找
         $where = function ($query) use ($request) {
             if ($request->has('id') and $request->id != '') {
@@ -72,7 +72,6 @@ class OrderController extends CommonController
             ->with('order_products.product', 'customer', 'address')
             ->orderBy('created_at', 'desc')
             ->paginate(config('xSystem.page_size'));
-
         return view('Admin.xEbuy.order.index')->with('orders', $orders);
     }
 
