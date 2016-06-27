@@ -65,11 +65,11 @@
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a class="am-btn am-btn-default am-btn-xs am-text-secondary"
-                                               href="/xAd/ad/{{$ad->id}}/restore">
+                                               href="/admin/xAd/ad/{{$ad->id}}/restore">
                                                 <span class="am-icon-reply"></span> 还原
                                             </a>
                                             <a class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"
-                                               href="/xAd/ad/{{$ad->id}}/force_destroy"
+                                               href="/admin/xAd/ad/{{$ad->id}}/force_destroy"
                                                data-method="delete" data-token="{{csrf_token()}}" data-confirm="确定删除吗？">
                                                 <span class="am-icon-trash-o"></span> 删除
                                             </a>
@@ -109,7 +109,7 @@
                 var checked_id = $(".checked_id:checked").serialize();
                 $.ajax({
                     type: "DELETE",
-                    url: "/xAd/ad/force_destroy_checked",
+                    url: "/admin/xAd/ad/force_destroy_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;
@@ -128,7 +128,7 @@
                 var checked_id = $(".checked_id:checked").serialize();
                 $.ajax({
                     type: "POST",
-                    url: "/xAd/ad/restore_checked",
+                    url: "/admin/xAd/ad/restore_checked",
                     data: checked_id,
                     success: function () {
                         location.href = location.href;
