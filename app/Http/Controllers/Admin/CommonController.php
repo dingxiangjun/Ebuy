@@ -12,6 +12,7 @@ class CommonController extends Controller
         view()->share([
             'admin' => $admin,
             'systems'   => config('xSystem.systems'),
+            
         ]);
         $this->bibel();
     }

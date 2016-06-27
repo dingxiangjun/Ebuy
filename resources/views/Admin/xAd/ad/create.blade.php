@@ -1,7 +1,7 @@
 @extends('Admin.layouts.application')
 
 @section('css')
-    <link rel="stylesheet" href="/assets/xSystem/vendor/markdown/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/common/daterangepicker/daterangepicker.css">
 @endsection
 @section('content')
     <div class="admin-content">

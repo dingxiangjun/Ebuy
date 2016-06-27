@@ -1,7 +1,7 @@
 @extends('Admin.layouts.application')
 
 @section('css')
-    <link rel="stylesheet" href="/assets/xSystem/vendor/markdown/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/common/daterangepicker/daterangepicker.css">
 @endsection
 @section('content')
     <div class="admin-content">
@@ -15,7 +15,6 @@
 
         <div class="am-g">
             <div class="am-u-sm-12 am-u-md-12">
-
                 <form class="am-form" action="{{ route('admin.xAd.ad.update', $ad->id) }}" method="post">
                     {!! csrf_field() !!}
                     {!! method_field('put') !!}
@@ -114,10 +113,9 @@
 
 
 @section('js')
-    <script src="/assets/xSystem/js/jquery.html5-fileupload.js"></script>
-    <script src="/assets/xSystem/js/upload.js"></script>
-
-    <script src="/assets/xSystem/vendor/ckfinder/ckfinder.js"></script>
-    <script src="/assets/xSystem/js/ck_upload.js"></script>
+    <script src="/common/js/jquery.html5-fileupload.js"></script>
+    <script src="/common/js/upload.js"></script>
+    <script src="/common/ckfinder/ckfinder.js"></script>
+    <script src="/common/js/ck_upload.js"></script>
 
 @endsection
