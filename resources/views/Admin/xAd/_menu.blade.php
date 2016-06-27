@@ -10,15 +10,6 @@
     {{--<ul class="am-list am-collapse admin-sidebar-sub"--}}
         {{--id="collapse-products">--}}
         <li>
-            <a href="{{route('admin.xAd.ad.index')}}" class="{{$_ad or ''}}">
-                <span class="am-icon-th-list"></span> 广告列表
-                <span class="am-badge am-badge-secondary am-margin-right am-fr am-radius">
-                   
-                </span>
-
-            </a>
-        </li>
-        <li>
             <a href="{{route('admin.xEbuy.product.index')}}" class="">
                 <span class="am-icon-th-list"></span> 添加新广告
                 <span class="am-badge am-badge-secondary am-margin-right am-fr am-radius">
@@ -28,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('admin.xAd.category.index')}}" class="">
+            <a href="{{route('admin.xEbuy.category.index')}}" class="">
                 <span class="am-icon-th"></span> 广告分类
                 <span class="am-badge am-badge-warning am-margin-right am-fr am-radius">
                    
