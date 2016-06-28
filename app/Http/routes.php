@@ -23,6 +23,7 @@ Route::group(['domain' => 'ebuy.app'], function () {
             require 'Routes/Admin/xEbuy.php';
             require 'Routes/Admin/xAd.php';
             require 'Routes/Admin/xSystem.php';
+			require 'Routes/Admin/xApi.php';
 	
 	});
 });

@@ -22,7 +22,9 @@ class CommonController extends Controller
     {
         @$bibels = file('Bibel.txt');
         $size = count($bibels) / 2 - 1;
+
         $rand = rand(0, $size) * 2;
+
         $bibel = array(
             'cn' => $bibels[$rand + 1],
             'en' => $bibels[$rand]
