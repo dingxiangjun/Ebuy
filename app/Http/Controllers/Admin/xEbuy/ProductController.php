@@ -88,11 +88,12 @@ class ProductController extends CommonController
     }
 
     public function store(Request $request){
-        
-        $data = $request->except(['stock', 'brand_id', 'file', 'imgs']);
+
+        $data = $request->except(['stock', 'brand_id','file','imgs']);
+
         $data['stock'] = $request->stock == '无限' ? '-1' : $request->stock;
         $data['brand_id'] = $request->brand_id == '-1' ? '' : $request->brand_id;
-        $product = Product::create($data);  
+        $product = Product::create($data);
 
         //相册
         if ($request->has('imgs')) {
@@ -100,7 +101,7 @@ class ProductController extends CommonController
                 $product->product_galleries()->create(['img' => $img]);
             }
         }
-
+       
         return redirect('/admin/xEbuy/product')->with('success', '添加成功');
         //return back()->with('success', '新增成功~');
     }
@@ -112,7 +113,8 @@ class ProductController extends CommonController
     }
 
     function update(Request $request,$id){
-        $data = $request->except(['stock', 'brand_id','flie','imgs']);
+        return $request->all();
+        $data = $request->except(['stock', 'brand_id','file','imgs']);
         $data['stock'] = $request->stock == '无限' ? '-1' : $request->stock;
         $data['brand_id'] = $request->brand_id == '-1' ? '' : $request->brand_id;
 

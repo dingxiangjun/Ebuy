@@ -191,7 +191,7 @@
 
                             </div>
 
-                            <div class="am-tab-panel am-fade" id="tab4">
+                            {{--<div class="am-tab-panel am-fade" id="tab4">
                                 <div class="am-g am-margin-top-sm">
                                     <div class="am-u-sm-12 am-u-md-12">
                                         <div id="markdown" >
@@ -200,7 +200,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div>--}}
 
                             <div class="am-tab-panel am-fade" id="tab3">
                                 <div id="uploader">
@@ -254,16 +254,6 @@
     <script type="text/javascript" src="/common/webupload/upload.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
     <!-- kindeditor编辑器 -->
     <script charset="utf-8" src="/common/kindeditor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/common/kindeditor/lang/zh-CN.js"></script>
@@ -275,7 +265,7 @@
         });
     </script>
 
-    <!-- 百度编辑器 -->
+   {{-- <!-- 百度编辑器 -->
 
     <!-- 配置文件 -->
     <script type="text/javascript" src="/common/ueditor/ueditor.config.js"></script>
@@ -284,6 +274,6 @@
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');
-    </script>
+    </script>--}}
 
 @endsection
