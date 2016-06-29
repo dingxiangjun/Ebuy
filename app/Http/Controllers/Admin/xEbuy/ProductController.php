@@ -88,10 +88,19 @@ class ProductController extends CommonController
     }
 
     public function store(Request $request){
+        
         $data = $request->except(['stock', 'brand_id', 'file', 'imgs']);
         $data['stock'] = $request->stock == '无限' ? '-1' : $request->stock;
         $data['brand_id'] = $request->brand_id == '-1' ? '' : $request->brand_id;
         $product = Product::create($data);  
+
+        //相册
+        if ($request->has('imgs')) {
+            foreach ($request->imgs as $img) {
+                $product->product_galleries()->create(['img' => $img]);
+            }
+        }
+
         return redirect('/admin/xEbuy/product')->with('success', '添加成功');
         //return back()->with('success', '新增成功~');
     }

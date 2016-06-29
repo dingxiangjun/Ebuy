@@ -1,4 +1,10 @@
 @extends('Admin.layouts.application')
+
+@section('css')
+    <link rel="stylesheet" href="/common/markdown/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/common/webupload/dist/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="/common/webupload/style.css" />
+@endsection
 @section('content')
     <div class="admin-content">
         <div class="admin-content-body">
@@ -243,6 +249,20 @@
     <script src="/common/js/upload.js"></script>
     <script src="/common/ckfinder/ckfinder.js"></script>
     <script src="/common/js/ck_upload.js"></script>
+
+    <script type="text/javascript" src="/common/webupload/dist/webuploader.js"></script>
+    <script type="text/javascript" src="/common/webupload/upload.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- kindeditor编辑器 -->
     <script charset="utf-8" src="/common/kindeditor/kindeditor-all-min.js"></script>

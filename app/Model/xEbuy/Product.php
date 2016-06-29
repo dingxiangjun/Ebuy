@@ -29,4 +29,19 @@ class Product extends Model
         return $this->hasMany('App\Model\xEbuy\OrderProduct');
     }
 
+     //一个商品有很多相册图片
+    public function product_galleries()
+    {
+        return $this->hasMany('App\Model\xEbuy\ProductGallery');
+    }
+
+    //检查当前商品是否有订单
+    static function check_orders($id)
+    {
+        $product = self::with('order_products')->find($id);
+        if ($product->order_products->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }
