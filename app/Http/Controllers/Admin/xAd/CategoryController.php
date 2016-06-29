@@ -54,6 +54,7 @@ class CategoryController extends CommonController
 
     function sort_order(Request $request)
     {
+        
         $category = Category::find($request->id);
         $category->sort_order = $request->sort_order;
         $category->save();

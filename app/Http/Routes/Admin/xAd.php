@@ -7,7 +7,7 @@ Route::group(['prefix' => 'admin/xAd', 'namespace' => 'Admin\xAd'], function () 
     Route::get('/', 'IndexController@index');
     
     //商品分类
-    Route::group(['prefix' => 'ad'], function () {
+    Route::group(['prefix' => 'category'], function () {
         Route::patch('sort_order', 'CategoryController@sort_order');
         Route::delete('destroy_checked', 'CategoryController@destroy_checked');
         Route::patch('is_something', 'CategoryController@is_something');
