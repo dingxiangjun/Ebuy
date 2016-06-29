@@ -22,6 +22,7 @@ Route::group(['domain' => 'ebuy.app'], function () {
 			//xEbuy 商城系统
             require 'Routes/Admin/xEbuy.php';
             require 'Routes/Admin/xAd.php';
+            require 'Routes/Admin/xApi.php';
             require 'Routes/Admin/xSystem.php';
 	
 	});
