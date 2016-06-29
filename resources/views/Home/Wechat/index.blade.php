@@ -15,21 +15,11 @@
         <section class="slider">
             <div class="flexslider">
                 <ul class="slides">
-                    <li>
-                        <a href=""><img src="http://i8.mifile.cn/v1/a1/T1_1W_BgVv1RXrhCrK!720x360.jpg"/></a>
-                    </li>
-                    <li>
-                        <img src="http://i8.mifile.cn/v1/a1/T12LdgBXZv1RXrhCrK!720x360.jpg"/>
-                    </li>
-                    <li>
-                        <img src="http://i8.mifile.cn/v1/a1/T1zgZvBgK_1RXrhCrK!720x360.jpg"/>
-                    </li>
-                    <li>
-                        <img src="http://i8.mifile.cn/v1/a1/T1m4bgBsdv1RXrhCrK!720x360.jpg"/>
-                    </li>
-                    <li>
-                        <img src="http://i8.mifile.cn/v1/a1/T17XD_Bjxv1RXrhCrK!720x360.jpg"/>
-                    </li>
+                    @foreach($slides as $p)
+                        <li>
+                            <a href="{{$p->url}}"><img src="{{$p->thumb}}"/></a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </section>
@@ -39,99 +29,37 @@
             <div class="section">
                 <div class="mcells_auto_fill">
                     <div class="body">
-                        <div>
-                            <div class="items">
-                                <img src="http://i8.mifile.cn/v1/a1/T1lJdgB7hv1RXrhCrK.jpg">
+                        @foreach ($banners as $p)
+                            <div>
+                                <div class="items" onclick="location.href='{{$p->url}}'">
+                                    <img src="{{$p->thumb}}">
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            @foreach($recommends as $p)
+                <div class="section" onclick="location.href='/home/product/{{$p->id}}'">
+                    <div>
+                        <div class="item">
+                            <div class="img">
+                                <img class="ico" src="{{$p->thumb}}">
+                                @if($p->is_new)
+                                    <img class="tag " src="/wechat/images/new.png">
+                                @elseif($p->is_hot)
+                                    <img class="tag " src="/wechat/images/hot.png">
+                                @endif
+                            </div>
+                            <div class="info">
+                                <div class="name"><p>{{$p->name}}</p></div>
+                                <div class="brief"><p>{{$p->desc}}</p></div>
+                                <div class="price"><p>{{doubleval($p->price)}}元 起</p></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="items">
-                                <img src="http://i8.mifile.cn/v1/a1/T1a9hgB7_v1RXrhCrK.jpg">
-                            </div>
-                        </div>
-                        <div>
-                            <div class="items">
-                                <img src="http://i8.mifile.cn/v1/a1/T1F6WgBQYv1RXrhCrK.jpg">
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="section">
-                <div>
-                    <div class="item">
-                        <div class="img">
-                            <img class="ico" src="http://i8.mifile.cn/v1/a1/T14xJTByZ_1RXrhCrK.jpg">
-                            <img class="tag " src="http://c1.mifile.cn/f/i/f/mishop/iic/xp.png">
-                        </div>
-                        <div class="info">
-                            <div class="name"><p>小米手机5</p></div>
-                            <div class="brief"><p>骁龙820处理器 / 4GB 内存 / 128GB 闪存 / 4轴防抖相机 / 3D陶瓷机身</p></div>
-                            <div class="price"><p>1999元 起</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div>
-                    <div class="item">
-                        <div class="img">
-                            <img class="ico" src="http://i8.mifile.cn/v1/a1/T14xJTByZ_1RXrhCrK.jpg">
-                            <img class="tag " src="http://c1.mifile.cn/f/i/f/mishop/iic/xp.png">
-                        </div>
-                        <div class="info">
-                            <div class="name"><p>小米手机5</p></div>
-                            <div class="brief"><p>骁龙820处理器 / 4GB 内存 / 128GB 闪存 / 4轴防抖相机 / 3D陶瓷机身</p></div>
-                            <div class="price"><p>1999元 起</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div>
-                    <div class="item">
-                        <div class="img">
-                            <img class="ico" src="http://i8.mifile.cn/v1/a1/T14xJTByZ_1RXrhCrK.jpg">
-                            <img class="tag " src="http://c1.mifile.cn/f/i/f/mishop/iic/xp.png">
-                        </div>
-                        <div class="info">
-                            <div class="name"><p>小米手机5</p></div>
-                            <div class="brief"><p>骁龙820处理器 / 4GB 内存 / 128GB 闪存 / 4轴防抖相机 / 3D陶瓷机身</p></div>
-                            <div class="price"><p>1999元 起</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div>
-                    <div class="item">
-                        <div class="img">
-                            <img class="ico" src="http://i8.mifile.cn/v1/a1/T14xJTByZ_1RXrhCrK.jpg">
-                            <img class="tag " src="http://c1.mifile.cn/f/i/f/mishop/iic/xp.png">
-                        </div>
-                        <div class="info">
-                            <div class="name"><p>小米手机5</p></div>
-                            <div class="brief"><p>骁龙820处理器 / 4GB 内存 / 128GB 闪存 / 4轴防抖相机 / 3D陶瓷机身</p></div>
-                            <div class="price"><p>1999元 起</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section">
-                <div>
-                    <div class="item">
-                        <div class="img">
-                            <img class="ico" src="http://i8.mifile.cn/v1/a1/T14xJTByZ_1RXrhCrK.jpg">
-                            <img class="tag " src="http://c1.mifile.cn/f/i/f/mishop/iic/xp.png">
-                        </div>
-                        <div class="info">
-                            <div class="name"><p>小米手机5</p></div>
-                            <div class="brief"><p>骁龙820处理器 / 4GB 内存 / 128GB 闪存 / 4轴防抖相机 / 3D陶瓷机身</p></div>
-                            <div class="price"><p>1999元 起</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
        @include('Home.wechat.layout._footer')
 </div>
