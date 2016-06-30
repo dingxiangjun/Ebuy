@@ -1,7 +1,6 @@
 @extends('Admin.layouts.application')
 
 @section('css')
-    <link rel="stylesheet" href="/common/markdown/css/editormd.min.css"/>
     <link rel="stylesheet" href="/common/webupload/dist/webuploader.css" />
     <link rel="stylesheet" type="text/css" href="/common/webupload/style.css" />
 @endsection

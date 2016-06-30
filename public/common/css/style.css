@@ -194,7 +194,7 @@
     float: right;
     text-indent: -9999px;
     overflow: hidden;
-    background: url(../vendor/webupload/icons.png) no-repeat;
+    background: url(../webupload/icons.png) no-repeat;
     margin: 5px 1px 1px;
     cursor: pointer;
 }

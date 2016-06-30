@@ -1,4 +1,8 @@
 @extends('Admin.layouts.application')
+@section('css')
+    <link rel="stylesheet" href="/common/webupload/dist/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="/common/webupload/style.css" />
+@endsection
 @section('content')
     <div class="admin-content">
         <div class="admin-content-body">
@@ -191,7 +195,7 @@
 
                             </div>
 
-                            <div class="am-tab-panel am-fade" id="tab4">
+                            <!-- <div class="am-tab-panel am-fade" id="tab4">
                                 <div class="am-g am-margin-top-sm">
                                     <div class="am-u-sm-12 am-u-md-12">
                                         <div id="markdown" >
@@ -200,9 +204,27 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> -->
 
                             <div class="am-tab-panel am-fade" id="tab3">
+                                <ul data-am-widget="gallery"
+                                    class="am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-gallery-imgbordered xGallery"
+                                    data-am-gallery="{ pureview: true }">
+
+                                    @foreach($product->product_galleries as $gallery)
+                                        <li>
+                                            <div class="am-gallery-item">
+                                                <a href="{{$gallery->img}}" class="">
+                                                    <img src="{{$gallery->img}}"/>
+                                                </a>
+                                                <div class="file-panel">
+                                                    <span class="cancel" data-id="{{$gallery->id}}">删除</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
                                 <div id="uploader">
                                     <div class="queueList">
                                         <div id="dndArea" class="placeholder">
@@ -250,6 +272,10 @@
     <script src="/common/ckfinder/ckfinder.js"></script>
     <script src="/common/js/ck_upload.js"></script>
 
+    <script type="text/javascript" src="/common/webupload/dist/webuploader.js"></script>
+    <script type="text/javascript" src="/common/webupload/upload.js"></script>
+
+
     <!-- kindeditor编辑器 -->
     <script charset="utf-8" src="/common/kindeditor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="/common/kindeditor/lang/zh-CN.js"></script>
@@ -261,6 +287,29 @@
         });
     </script>
 
+    <script>
+        $(function () {
+            $(".am-gallery-item").hover(function () {
+                $(this).children('.file-panel').fadeIn(300);
+            }, function () {
+                $(this).children('.file-panel').fadeOut(300);
+            });
+
+            $(".cancel").click(function () {
+
+                var _this = $(this);
+                $.ajax({
+                    type: "delete",
+                    url: "/admin/xEbuy/product/destroy_gallery",
+                    data: {gallery_id: _this.data('id')},
+                    success: function () {
+                        _this.parents("li").remove();
+                    }
+                });
+            });
+        })
+    </script>
+
     <!-- 百度编辑器 -->
 
     <!-- 配置文件 -->
@@ -269,7 +318,7 @@
     <script type="text/javascript" src="/common/ueditor/ueditor.all.js"></script>
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
-        var ue = UE.getEditor('container');
+        //var ue = UE.getEditor('container');
     </script>
 
 @endsection

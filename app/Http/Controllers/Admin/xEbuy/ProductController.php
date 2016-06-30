@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin\xEbuy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CommonController;
 use App\Http\Requests;
-use App\Model\xEbuy\Product, App\Model\xEbuy\Brand;
+use App\Model\xEbuy\Product, App\Model\xEbuy\Brand,App\Model\xEbuy\ProductGallery;
 use App\Model\xEbuy\ProductCategory as Category;
+
 
 class ProductController extends CommonController
 {
@@ -108,18 +109,18 @@ class ProductController extends CommonController
 
     function edit($id){
         $this->attributes();
-        $product=Product::find($id);
+        $product=Product::with('product_galleries')->find($id);
+        //return $product;
         return view('Admin.xEbuy.product.edit')->with('product', $product);;
     }
 
     function update(Request $request,$id){
-        return $request->all();
+        //return $request->all();
         $data = $request->except(['stock', 'brand_id','file','imgs']);
         $data['stock'] = $request->stock == '无限' ? '-1' : $request->stock;
         $data['brand_id'] = $request->brand_id == '-1' ? '' : $request->brand_id;
-
-       $product = Product::find($id);
-       $product->update($data);
+        $product = Product::find($id);
+        $product->update($data);
 
         //相册
         if ($request->has('imgs')) {
@@ -139,6 +140,12 @@ class ProductController extends CommonController
         $product->save();
     }
 
+    //ajax删除相册图片
+    function destroy_gallery(Request $request)
+    {
+        
+        ProductGallery::destroy($request->gallery_id);
+    }
 
 
     function change_stock(Request $request){
@@ -158,9 +165,9 @@ class ProductController extends CommonController
      */
     function destroy($id)
     {
-        /*if (!Product::check_orders($id)) {
+        if (!Product::check_orders($id)) {
             return back()->with('error', '当前商品拥有对应的订单，无法删除~');
-        }*/
+        }
         Product::destroy($id);
         return back()->with('success', '被删商品已进入回收站~');
     }
