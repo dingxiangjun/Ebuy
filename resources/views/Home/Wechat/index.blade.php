@@ -40,7 +40,7 @@
                 </div>
             </div>
             @foreach($recommends as $p)
-                <div class="section" onclick="location.href='/home/product/{{$p->id}}'">
+                <div class="section" onclick="location.href='/home/wechat/product/{{$p->id}}'">
                     <div>
                         <div class="item">
                             <div class="img">

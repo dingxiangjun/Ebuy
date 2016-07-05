@@ -123,7 +123,7 @@
                                                     id="ck_thumb_upload">
                                                 <i class="am-icon-search-plus" id="loading"></i> 选择已存在的缩略图
                                             </button>
-                                            <input type="hidden" name="thumb">
+                                            <input type="hidden" name="thumb" value="{{$product->thumb}}">
                                         </div>
 
                                         <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed"/>
