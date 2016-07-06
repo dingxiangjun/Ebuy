@@ -1,4 +1,4 @@
-@extends('Home.wechat.layouts.application')
+@extends('Home.wechat.layout.application')
 
 @section('content')
 
@@ -28,7 +28,7 @@
                         <li class="item">
                             <div class="ui-box">
                                 <div class="imgProduct">
-                                    <a href="/product/{{$cart->product->id}}">
+                                    <a href="/home/wechat/product/{{$cart->product->id}}">
                                         <img src="{{$cart->product->thumb}}">
                                     </a>
                                 </div>
@@ -101,7 +101,7 @@
 
                 $.ajax({
                     type: 'DELETE',
-                    url: '/cart',
+                    url: '/home/wechat/cart',
                     data: {id: _this.parents(".num").data('id')},
                     success: function (data) {
                         var length = $(".item").length;
@@ -140,12 +140,13 @@
 
                 $.ajax({
                     type: 'PATCH',
-                    url: '/cart',
+                    url: '/home/wechat/cart',
                     data: {
                         id: _this.parents(".num").data('id'),
                         type: 'add'
                     },
                     success: function (data) {
+                        console.log(data);
                         $("#num").text("共" + data.num + "件 金额:");
                         $("#total_price").text(data.total_price);
                     }
@@ -176,7 +177,7 @@
 
                 $.ajax({
                     type: 'PATCH',
-                    url: '/cart',
+                    url: '/home/wechat/cart',
                     data: {
                         id: _this.parents(".num").data('id'),
                         type: 'sub'

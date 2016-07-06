@@ -1,4 +1,4 @@
-@extends('Home.wechat.layouts.application')
+@extends('Home.wechat.layout.application')
 
 @section('content')
     <div class="page-list" data-log="商品列表">
@@ -18,6 +18,6 @@
                 </li>
             @endforeach
         </ol>
-        @include('Home.wechat.layouts._footer')
+        @include('Home.wechat.layout._footer')
     </div>
 @endsection

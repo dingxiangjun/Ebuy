@@ -6,13 +6,9 @@ use App\Http\Controllers\Controller;
 
 class CommonController extends Controller
 {
-    function __construct()
+    public function __construct()
     {
-        view()->share([
-            'admin' => 111,
-            'systems'   => 222,
-            
-        ]);
+        $this->customer = session()->get('customer');
     }
 
 }

@@ -67,7 +67,7 @@
             </div>
             <div class="b7">
                 <div class="b70">
-                    <a href="/">
+                    <a href="/home/wechat/">
                         <div class="icon-home"></div>
                     </a>
                 </div>
@@ -101,11 +101,10 @@
                     type: 'post',
                     url: '/home/wechat/cart',
                     data: {product_id: "{{$product->id}}"},
-                    //console.log(data);
-                    /*success: function (data) {
+                    success: function (data) {
                         console.log(data);
                         location.href = '/home/wechat/cart';
-                    }*/
+                    }
                 })
             })
         })

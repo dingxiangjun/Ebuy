@@ -11,6 +11,8 @@ Route::group(['prefix' => 'home/wechat', 'namespace' => 'Home\Wechat'], function
     	 
     	 //购物车
     	 Route::post('/', 'CartController@store');
+         Route::get('/', 'CartController@index');
+         Route::patch('/', 'CartController@change_num');
     });
 
 });
