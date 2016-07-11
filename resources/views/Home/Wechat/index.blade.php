@@ -3,7 +3,7 @@
 <div class="page-index" id="home" data-log="首页">
         <div class="index-header">
             <div class="search_bar">
-                <a href="/1/#/search/index">
+                <a href="/home/wechat/1/#/search/index">
                     <span class="icon icon-search"></span>
                     <span class="text">搜索商品名称</span>
                 </a>

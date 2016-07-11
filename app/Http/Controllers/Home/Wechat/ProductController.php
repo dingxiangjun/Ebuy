@@ -53,5 +53,14 @@ class ProductController extends CommonController
         $categories = Category::get_categories();
         return view('Home.wechat.product.category')->with('categories', $categories);
     }
+
+     function search()
+    {
+        $products = Product::where('is_recommend', true)
+            ->orderBy('is_top', "desc")
+            ->orderBy('created_at')
+            ->get();
+        return view('Home.wechat.products.search')->with('products', $products);
+    }
   
 };
