@@ -80,10 +80,10 @@
                     <strong id="total_price">{{doubleval($count['total_price'])}}</strong><span>元</span>
                 </div>
                 <div class="btn">
-                    <a class="ui-button ui-button-disable" href="/product/category"><span>继续购物</span></a>
+                    <a class="ui-button ui-button-disable" href="/home/wechat/product/category"><span>继续购物</span></a>
                 </div>
                 <div class="btn">
-                    <a class="ui-button" href="/order/checkout"><span>去结算</span></a>
+                    <a class="ui-button" href="/home/wechat/order/checkout"><span>去结算</span></a>
                 </div>
             </div>
         </div>

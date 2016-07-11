@@ -6,7 +6,7 @@
         <ol class="version">
             @foreach ($products as $p)
                 <li>
-                    <a class="version-item" href="/product/{{$p->id}}">
+                    <a class="version-item" href="/home/wechat/product/{{$p->id}}">
                         <div class="version-item-img">
                             <img src="{{$p->thumb}}">
                         </div>

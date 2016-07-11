@@ -1,4 +1,4 @@
-@extends('Home.wechat.layouts.application')
+@extends('Home.wechat.layout.application')
 
 @section('content')
     <div class="page-category" data-log="商品分类">
@@ -10,7 +10,7 @@
                     <h3 class="list_title">{{$category->name}}</h3>
                     <ol class="list_category">
                         @foreach($category->children as $c)
-                            <li onclick="location.href='/product?category_id={{$c->id}}'">
+                            <li onclick="location.href='/home/wechat/product?category_id={{$c->id}}'">
                                 <div class="img"><img src="{{$c->thumb}}"></div>
                                 <div class="name"><span>{{$c->name}}</span></div>
                             </li>
@@ -19,7 +19,7 @@
                 </div>
             @endforeach
         </div>
-        @include('Home.wechat.layouts._footer')
+        @include('Home.wechat.layout._footer')
     </div>
     </div>
 @endsection

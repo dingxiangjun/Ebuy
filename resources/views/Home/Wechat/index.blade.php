@@ -17,7 +17,7 @@
                 <ul class="slides">
                     @foreach($slides as $p)
                         <li>
-                            <a href="{{$p->url}}"><img src="{{$p->thumb}}"/></a>
+                            <a href="/home/wechat/{{$p->url}}"><img src="{{$p->thumb}}"/></a>
                         </li>
                     @endforeach
                 </ul>
@@ -31,7 +31,7 @@
                     <div class="body">
                         @foreach ($banners as $p)
                             <div>
-                                <div class="items" onclick="location.href='{{$p->url}}'">
+                                <div class="items" onclick="location.href='/home/wechat/{{$p->url}}'">
                                     <img src="{{$p->thumb}}">
                                 </div>
                             </div>

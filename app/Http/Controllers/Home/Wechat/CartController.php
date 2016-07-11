@@ -9,9 +9,8 @@ use App\Http\Controllers\Home\CommonController;
 use App\Model\xEbuy\Product;
 use App\Model\xEbuy\Cart;
 
-class CartController extends CommonController
-{
-
+class CartController extends CommonController{
+    
     public function index(){
         $carts = Cart::with('product')->where('customer_id', 1)->get();
         //return $carts;
@@ -48,5 +47,14 @@ class CartController extends CommonController
         }
         return Cart::count_cart();
     }
+
+    function destroy(Request $request)
+    {
+        $id = $request->id;
+        Cart::destroy($id);
+        return Cart::count_cart();
+    }
+
+    
   
 };

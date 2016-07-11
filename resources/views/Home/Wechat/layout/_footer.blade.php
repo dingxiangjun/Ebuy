@@ -1,7 +1,7 @@
 <div class="footer">
     <ul>
         <li>
-            <a href="/" class="{{$_index or ''}}">
+            <a href="/home/wechat" class="{{$_index or ''}}">
                 <div class="nav">
                     <div class="ih ispr"></div>
                     <p>商城</p>
@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a href="/product/category" class="{{$_category or ''}}">
+            <a href="/home/wechat/product/category" class="{{$_category or ''}}">
                 <div class="nav">
                     <div class="ic ispr"></div>
                     <p>分类</p>
@@ -17,7 +17,7 @@
             </a>
         </li>
         <li>
-            <a href="/cart" class="{{$_cart or ''}}">
+            <a href="/home/wechat/cart" class="{{$_cart or ''}}">
                 <div class="nav">
                     <div class="is ispr"></div>
                     <p>购物车</p>
