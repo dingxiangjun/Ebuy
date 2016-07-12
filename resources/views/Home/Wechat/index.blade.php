@@ -3,7 +3,7 @@
 <div class="page-index" id="home" data-log="首页">
         <div class="index-header">
             <div class="search_bar">
-                <a href="/home/wechat/1/#/search/index">
+                <a href="/home/wechat/search">
                     <span class="icon icon-search"></span>
                     <span class="text">搜索商品名称</span>
                 </a>
@@ -17,7 +17,7 @@
                 <ul class="slides">
                     @foreach($slides as $p)
                         <li>
-                            <a href="/home/wechat/{{$p->url}}"><img src="{{$p->thumb}}"/></a>
+                            <a href="/home/wechat{{$p->url}}"><img src="{{$p->thumb}}"/></a>
                         </li>
                     @endforeach
                 </ul>
@@ -31,7 +31,7 @@
                     <div class="body">
                         @foreach ($banners as $p)
                             <div>
-                                <div class="items" onclick="location.href='/home/wechat/{{$p->url}}'">
+                                <div class="items" onclick="location.href='/home/wechat{{$p->url}}'">
                                     <img src="{{$p->thumb}}">
                                 </div>
                             </div>

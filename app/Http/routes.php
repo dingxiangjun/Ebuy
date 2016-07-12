@@ -15,7 +15,10 @@
      * 前端
      **********/
     //微信
-    require 'Routes/Home/wechat.php';
+    
+    Route::group(['middleware' => 'auth'], function () {
+    	require 'Routes/Home/wechat.php';
+	});
 
 
     

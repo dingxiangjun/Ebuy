@@ -1,10 +1,10 @@
-@extends('Home.wechat.layouts.application')
+@extends('Home.wechat.layout.application')
 
 @section('content')
     <div class="page-search" data-log="搜索页">
         <div class="header">
             <div class="left">
-                <a href="/" title="长乐小卖部" data-log="HEAD-首页" class="home">
+                <a href="/home/wechat" title="长乐小卖部" data-log="HEAD-首页" class="home">
                     <span class="icon-home icon"></span>
                 </a>
             </div>
@@ -36,7 +36,7 @@
         $(function () {
             $(".icon-search").click(function () {
                 var searchword = $.trim($(".searchword input").val());
-                location.href = '/product?searchword=' + searchword;
+                location.href = '/home/wechat/product?searchword=' + searchword;
             });
         })
     </script>

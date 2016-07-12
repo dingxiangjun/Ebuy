@@ -9,10 +9,10 @@
         <div class="cart-index-wrap">
             <div class="empt">
                 <div class="b3">
-                    <a href="/product/category" class="ui-button ui-button-disable">
+                    <a href="/home/wechat/product/category" class="ui-button ui-button-disable">
                         <span>全部商品</span>
                     </a>
-                    <a href="/" class="ui-button">
+                    <a href="/home/wechat" class="ui-button">
                         <span>精选商品</span>
                     </a>
                 </div>

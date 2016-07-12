@@ -13,13 +13,15 @@ class ProductController extends CommonController
 {
 
     public function show($id){
+
         $product=Product::find($id);
 
         $recommends=Product::where('is_recommend',true)
                             ->where('id','<>',$id)
                             ->take(4)
                             ->orderBy('is_top', 'desc')
-                            ->get(); 
+                            ->get();
+
         return view('Home.Wechat.product.show')
                             ->with('product', $product)
                             ->with('recommends', $recommends);
@@ -54,13 +56,13 @@ class ProductController extends CommonController
         return view('Home.wechat.product.category')->with('categories', $categories);
     }
 
-     function search()
+    function search()
     {
         $products = Product::where('is_recommend', true)
             ->orderBy('is_top', "desc")
             ->orderBy('created_at')
             ->get();
-        return view('Home.wechat.products.search')->with('products', $products);
+        return view('Home.wechat.product.search')->with('products', $products);
     }
   
 };

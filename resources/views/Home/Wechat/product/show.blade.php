@@ -5,12 +5,12 @@
 
         <div class="header">
             <div class="left">
-                <a onclick="location.href='/'" class="icon icon-home"></a>
+                <a onclick="location.href='/home/wechat'" class="icon icon-home"></a>
             </div>
 
             <div class="tit"></div>
             <div class="right">
-                <a href="/search" >
+                <a href="/home/wechat/search" >
                     <div class="icon icon-search"></div>
                 </a>
             </div>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="b73">
-                    <a href="/cart">
+                    <a href="/home/wechat/cart">
                         <div class="icon-gouwuche"></div>
                     </a>
                 </div>
