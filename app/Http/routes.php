@@ -10,15 +10,19 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+	//微信
+    
+   	//微信api
+	require 'Routes/Home/wechat_api.php';
+
+	
+	
 	Route::group(['domain' => 'ebuy.app'], function () {
     /**********
      * 前端
      **********/
-    //微信
-    
-    Route::group(['middleware' => 'auth'], function () {
-    	require 'Routes/Home/wechat.php';
-	});
+	require 'Routes/Home/wechat.php';
+    	
 
 
     

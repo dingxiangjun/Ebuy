@@ -42,6 +42,8 @@ $app->singleton(
 );
 $app->register(Overtrue\LaravelLang\TranslationServiceProvider::class);
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

@@ -1,6 +1,5 @@
 <?php
 Route::group(['prefix' => 'home/wechat', 'namespace' => 'Home\Wechat'], function () {
-    //用户授权
     
 	    Route::get('/', 'IndexController@index');
 
@@ -27,11 +26,22 @@ Route::group(['prefix' => 'home/wechat', 'namespace' => 'Home\Wechat'], function
 
 
 	    });
+
 	    //订单
 	    Route::group(['prefix' => 'order'], function () {
 	        //下单
 	        Route::get('checkout', 'OrderController@checkout');
 	    });
+
+	    //地址管理
+        Route::group(['prefix' => 'address'], function () {
+            //管理地址
+            Route::get('/manage', 'AddressController@manage');
+            //改变默认地址
+            Route::patch('/', 'AddressController@default_address');
+        });
+        
+        Route::resource('address', 'AddressController');
 
 
 });

@@ -76,7 +76,7 @@ var init = function () {
 
 
 //初始化, 读取省市区列表
-$.getJSON('/assets/wechat/js/city.min.js', function (json) {
+$.getJSON('/wechat/js/city.min.js', function (json) {
     city_json = json;
 });
 

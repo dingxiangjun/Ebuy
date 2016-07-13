@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-order-checkout">
         <div class="page-order-checkout-wrap">
-            <div class="b1 icon_arrow" onclick="location.href='/address'">
+            <div class="b1 icon_arrow" onclick="location.href='/home/wechat/address'">
                 @if($address)
                     <div class="b11"><p><span>{{$address->name}}</span><span>{{$address->tel}}</span></p></div>
                     <div class="b13">
