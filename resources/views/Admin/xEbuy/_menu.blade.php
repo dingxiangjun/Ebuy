@@ -32,7 +32,7 @@
         </li>
 
         <li>
-            <a href="{{route('admin.xEbuy.category.index')}}" class="{{ $_product_category or '' }}">
+            <a  href="{{route('admin.xEbuy.category.index')}}" class="{{ $_product_category or '' }}" >
                 <span class="am-icon-th"></span> 商品分类
                 <span class="am-badge am-badge-warning am-margin-right am-fr am-radius">
                     {{ \App\Model\xEbuy\ProductCategory::count() }}

@@ -17,6 +17,10 @@ class ProductCategory extends Model
     {
         return $this->hasMany('App\Model\xEbuy\Product', 'category_id');
     }
+    public function attribute()
+    {
+        return $this->hasMany('App\Model\xEbuy\Attribute');
+    }
 
     //清除缓存
     static function clear()

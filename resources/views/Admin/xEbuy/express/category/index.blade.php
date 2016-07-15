@@ -76,7 +76,7 @@
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a class="am-btn am-btn-default am-btn-xs am-text-secondary"
-                                               href="/admin/xEbuy/attribute?category_id={{$category->id}}">
+                                               href="{{route('admin.xEbuy.category.edit', $category->id)}}">
                                                 <span class="am-icon-pencil-square-o"></span>属性列表
                                             </a>
 

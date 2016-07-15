@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
         Route::patch('is_something', 'CategoryController@is_something');
     });
     Route::resource('category', 'CategoryController');
+    
+    //商品属性
+    Route::resource('attribute', 'AttributeController', ['except' => ['show']]);
 
     //商品管理
     Route::group(['prefix' => 'product'], function () {
