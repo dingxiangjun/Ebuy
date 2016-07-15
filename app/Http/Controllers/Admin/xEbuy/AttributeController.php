@@ -57,8 +57,19 @@ class AttributeController extends CommonController
         $data = $request->except(['attr_option_values']);
         $data['attr_option_values'] =str_replace('，',',',$request->attr_option_values);
         Attribute::create($data);
-
         return redirect('/admin/xEbuy/attribute')->with('success', '添加成功');
+    }
+
+    function destroy($id){
+        Attribute::destroy($id);
+        return back()->with('success', '删除成功');
+    }
+
+    function edit($id){
+        $this->attributes();
+        $attribute=Attribute::with('product_categories')->find($id);
+        //return $attribute;
+        return view('Admin.xEbuy.attribute.edit')->with('attribute', $attribute);;
     }
   
   
