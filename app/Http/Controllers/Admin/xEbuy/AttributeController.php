@@ -46,13 +46,18 @@ class AttributeController extends CommonController
         //return $attributes;
         return view('Admin.xEbuy.attribute.index')->with('attributes',$attributes);
     }
+
     function create(){
         $this->attributes();
         return view('Admin.xEbuy.attribute.create');
     }
 
     function store(Request $request){
-        Attribute::create($request->all());
+
+        $data = $request->except(['attr_option_values']);
+        $data['attr_option_values'] =str_replace('，',',',$request->attr_option_values);
+        Attribute::create($data);
+
         return redirect('/admin/xEbuy/attribute')->with('success', '添加成功');
     }
   
