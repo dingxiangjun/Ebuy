@@ -15,17 +15,17 @@
    	//微信api
 	require 'Routes/Home/wechat_api.php';
 
-	
-	
-	Route::group(['domain' => 'ebuy.app'], function () {
-    /**********
+	Route::group(['middleware' => 'web'], function () {
+		
+	/**********
      * 前端
      **********/
 	require 'Routes/Home/wechat.php';
-    	
 
 
-    
+	
+	Route::group(['domain' => 'ebuy.app'], function () {
+
     /**********
      * 后台
      **********/
@@ -42,7 +42,7 @@
 		
 		});
 	});
-
+});
 
 
 

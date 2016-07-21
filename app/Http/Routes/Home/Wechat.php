@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => 'home/wechat', 'namespace' => 'Home\Wechat'], function () {
+Route::group(['namespace' => 'Home\Wechat'], function () {
     
 	    Route::get('/', 'IndexController@index');
 

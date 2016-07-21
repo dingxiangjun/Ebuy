@@ -77,4 +77,16 @@ class ProductCategory extends Model
         }
         return false;
     }
+    /**
+     * 检查当前分类是否有商品属性
+     */
+    static function check_attributes($id)
+    {
+        $category = self::with('attribute')->find($id);
+        //return $category;
+        if ($category->attribute->isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }

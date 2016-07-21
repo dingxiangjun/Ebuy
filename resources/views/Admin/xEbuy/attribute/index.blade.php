@@ -49,7 +49,11 @@
                                     {{$attribute->attr_name}}
                                 </td>
                                 <td>
-                                     {{$attribute->attr_type}}
+                                     @if($attribute->attr_type == 1)
+                                        可选
+                                     @elseif($attribute->attr_type == 0)
+                                        唯一       
+                                     @endif
                                 </td>
 
                                 <td>
@@ -57,7 +61,7 @@
                                 </td>
 
                                 <td class="am-hide-sm-only">
-                                    {{$attribute->product_categories_id}}
+                                    {{$attribute->product_category_id}}
                                 </td>
                                 <td>
                                     <div class="am-btn-toolbar">

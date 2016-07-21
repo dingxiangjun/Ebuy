@@ -36,7 +36,7 @@ class AttributeController extends CommonController
         //多条件查找
         $where = function ($query) use ($request) {
             if ($request->has('category_id') and $request->category_id != '-1') {
-                $query->where('product_categories_id', $request->category_id);
+                $query->where('product_category_id', $request->category_id);
             }
 
         };
@@ -69,8 +69,17 @@ class AttributeController extends CommonController
         $this->attributes();
         $attribute=Attribute::with('product_categories')->find($id);
         //return $attribute;
-        return view('Admin.xEbuy.attribute.edit')->with('attribute', $attribute);;
+        return view('Admin.xEbuy.attribute.edit')->with('attribute', $attribute);
     }
-  
+    function update(Request $request,$id){
+        //return $request->all();
+
+        $ss=$request->product_categories_id;
+
+        $category = Attribute::find($id);
+        $category->update($request->all());
+        return redirect('/admin/xEbuy/attribute?category_id=$ss')->with('info', '编辑成功~');
+        //return view('admin.xEbuy.attribute.index')->with('info', '编辑成功~');
+    }
   
 }

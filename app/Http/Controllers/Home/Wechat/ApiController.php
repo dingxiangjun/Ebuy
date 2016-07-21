@@ -18,7 +18,7 @@ class ApiController extends Controller
 
     public function serve()
     {
-        return 11;
+        //return 11;
         // 从项目实例中得到服务端应用实例。
         $server = EasyWeChat::server();
 

@@ -160,6 +160,7 @@ return [
             
         //日志管理
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        
         //微信
         Overtrue\LaravelWechat\ServiceProvider::class,
 
@@ -210,7 +211,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Wechat' => Overtrue\LaravelWechat\Facade::class,
+
+        'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
 
     ],
 

@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Admin\CommonController;
 use App\Http\Controllers\Controller;
 use App\Model\xEbuy\ProductCategory as Category;
-
+use App\Model\xEbuy\Attribute;
 class CategoryController extends CommonController
 {
 	public function __construct()
@@ -82,6 +82,12 @@ class CategoryController extends CommonController
             return back()->with('error', '当前分类有商品，请先将对应商品删除后再尝试删除~');
         }
 
+        if(!Category::check_attributes($id)){
+
+            Attribute::where('product_category_id', $id)->delete();
+
+        };
+    
         Category::destroy($id);
         Category::clear();
         return back()->with('success', '删除成功');

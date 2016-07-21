@@ -18,7 +18,7 @@
                     </div>
                     <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
                             <select data-am-selected="{btnWidth: '100%',  btnStyle: 'secondary', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-                                    name="product_categories_id">
+                                    name="product_category_id">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id}}">
                                         {{ $category->name }}

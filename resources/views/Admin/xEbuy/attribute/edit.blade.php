@@ -10,15 +10,16 @@
             </div>
 
             <hr>
-            <form class="am-form" method="post" action="{{route('admin.xEbuy.attribute.store')}}">
+            <form class="am-form" method="post" action="{{ route('admin.xEbuy.attribute.update',$attribute->id) }}">
                 {!! csrf_field() !!}
+                {!! method_field('put') !!}
                 <div class="am-g am-margin-top">
                     <div class="am-u-sm-4 am-u-md-2 am-text-right">
                         所属类型
                     </div>
                     <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
                             <select data-am-selected="{btnWidth: '100%',  btnStyle: 'secondary', btnSize: 'sm', maxHeight: 360, searchBox: 1}"
-                                    name="product_categories_id">
+                                    name="product_category_id">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id}}" @if($category->id == $attribute->id) selected @endif>
                                         {{ $category->name }}
@@ -43,7 +44,7 @@
                         属性可选值
                     </div>
                     <div class="am-u-sm-8 am-u-md-4">
-                        <textarea rows="6" name="attr_option_values" placeholder="请使用富文本编辑插件">{{$attribute->product_categories_id}}</textarea>
+                        <textarea rows="6" name="attr_option_values" placeholder="请使用富文本编辑插件">{{$attribute->attr_option_values}}</textarea>
                     </div>
                     <div class="am-hide-sm-only am-u-md-6"></div>
                 </div>
