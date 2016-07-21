@@ -54,6 +54,11 @@ Route::group(['prefix' => 'admin/xEbuy', 'namespace' => 'Admin\xEbuy'], function
     //订单管理
     Route::resource('order', 'OrderController');
 
-    
+    //微信自定义菜单
+    Route::group(['prefix' => 'wechat'], function () {
+        Route::get('/', 'WechatController@edit');
+        Route::put('/', 'WechatController@update');
+        Route::delete('/', 'WechatController@destroy');
+    });
 
 });
