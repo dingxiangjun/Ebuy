@@ -12,7 +12,7 @@ use App\Model\xEbuy\Cart;
 class CartController extends CommonController{
     
     public function index(){
-        $carts = Cart::with('product')->where('customer_id', 1)->get();
+        $carts = Cart::with('product')->where('customer_id', $this->customer->id)->get();
         //return $carts;
         return view('Home.wechat.cart.index')
             ->with('carts', $carts)
@@ -24,7 +24,7 @@ class CartController extends CommonController{
         //return $request->all();
         //判断购物车是否有当前商品,如果有,那么 num +1
         $product_id = $request->product_id;
-        $cart = Cart::where('product_id', $product_id)->where('customer_id', 1)->first();
+        $cart = Cart::where('product_id', $product_id)->where('customer_id', $this->customer->id)->first();
 
         if ($cart) {
             Cart::where('id', $cart->id)->increment('num');
@@ -34,7 +34,7 @@ class CartController extends CommonController{
         //否则购物车表,创建新数据
         Cart::create([
             'product_id' => $request->product_id,
-            'customer_id' => 1,
+            'customer_id' => $this->customer->id,
         ]);
     }
 

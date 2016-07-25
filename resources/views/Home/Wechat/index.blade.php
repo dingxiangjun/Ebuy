@@ -3,7 +3,7 @@
 <div class="page-index" id="home" data-log="首页">
         <div class="index-header">
             <div class="search_bar">
-                <a href="/home/wechat/search">
+                <a href="/search">
                     <span class="icon icon-search"></span>
                     <span class="text">搜索商品名称</span>
                 </a>
@@ -17,7 +17,7 @@
                 <ul class="slides">
                     @foreach($slides as $p)
                         <li>
-                            <a href="/home/wechat{{$p->url}}"><img src="{{$p->thumb}}"/></a>
+                            <a href="{{$p->url}}"><img src="{{$p->thumb}}"/></a>
                         </li>
                     @endforeach
                 </ul>
@@ -31,7 +31,7 @@
                     <div class="body">
                         @foreach ($banners as $p)
                             <div>
-                                <div class="items" onclick="location.href='/home/wechat{{$p->url}}'">
+                                <div class="items" onclick="location.href='{{$p->url}}'">
                                     <img src="{{$p->thumb}}">
                                 </div>
                             </div>
@@ -40,15 +40,15 @@
                 </div>
             </div>
             @foreach($recommends as $p)
-                <div class="section" onclick="location.href='/home/wechat/product/{{$p->id}}'">
+                <div class="section" onclick="location.href='/product/{{$p->id}}'">
                     <div>
                         <div class="item">
                             <div class="img">
                                 <img class="ico" src="{{$p->thumb}}">
                                 @if($p->is_new)
-                                    <img class="tag " src="/wechat/images/new.png">
+                                    <img class="tag " src="/images/new.png">
                                 @elseif($p->is_hot)
-                                    <img class="tag " src="/wechat/images/hot.png">
+                                    <img class="tag " src="/images/hot.png">
                                 @endif
                             </div>
                             <div class="info">

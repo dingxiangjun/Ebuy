@@ -188,8 +188,8 @@ class ApiController extends Controller
             $news[] = new News([
                 'title' => $p->name,
                 'description' => $p->desc,
-                'url' => 'http://wechat.phpwh.com/product/' . $p->id,
-                'image' => 'http://wechat.phpwh.com/' . $p->thumb,
+                'url' => 'http://weixin.whdio.com/product/' . $p->id,
+                'image' => 'http://weixin.whdio.com/' . $p->thumb,
             ]);
         }
         return $news;
@@ -210,8 +210,8 @@ class ApiController extends Controller
             $news[] = new News([
                 'title' => $p->name,
                 'description' => $p->desc,
-                'url' => 'http://wechat.phpwh.com/product/' . $p->id,
-                'image' => 'http://wechat.phpwh.com/' . $p->thumb,
+                'url' => 'http://weixin.whdio.com/product/' . $p->id,
+                'image' => 'http://weixin.whdio.com/' . $p->thumb,
             ]);
         }
         return $news;
@@ -231,8 +231,8 @@ class ApiController extends Controller
             $news[] = new News([
                 'title' => $p->name,
                 'description' => $p->desc,
-                'url' => 'http://wechat.phpwh.com/product/' . $p->id,
-                'image' => 'http://wechat.phpwh.com/' . $p->thumb,
+                'url' => 'http://weixin.whdio.com/product/' . $p->id,
+                'image' => 'http://weixin.whdio.com/' . $p->thumb,
             ]);
         }
         return $news;
@@ -264,8 +264,8 @@ class ApiController extends Controller
 
             $news[] = new News([
                 'title' => '订单号' . $order->id . " (" . $order_status[$order->status] . ")",
-                'url' => 'http://wechat.phpwh.com/order/' . $order->id,
-                'image' => 'http://wechat.phpwh.com/' . $order->order_products->first()->product->thumb,
+                'url' => 'http://weixin.whdio.com/order/' . $order->id,
+                'image' => 'http://weixin.whdio.com/' . $order->order_products->first()->product->thumb,
             ]);
         }
         return $news;

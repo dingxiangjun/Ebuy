@@ -52,9 +52,9 @@ class WechatController extends CommonController
 
     }
 
-   /* function update(Request $request)
+    function update(Request $request)
     {
-
+        
         $buttons = wechat_menus($request->buttons);
 
         $this->menu->add($buttons);
@@ -67,5 +67,5 @@ class WechatController extends CommonController
         $this->menu->destroy();
         Cache::forget('xWechat_config_menus');
         return back()->with('success', '您已成功删除菜单，请取消关注后，再重新关注~');
-    }*/
+    }
 }

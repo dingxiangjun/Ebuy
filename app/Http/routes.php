@@ -15,7 +15,7 @@
    	//微信api
 	require 'Routes/Home/wechat_api.php';
 
-	Route::group(['middleware' => 'web'], function () {
+	
 		
 	/**********
      * 前端
@@ -42,7 +42,7 @@
 		
 		});
 	});
-});
+
 
 
 

@@ -5,12 +5,12 @@
 
         <div class="header">
             <div class="left">
-                <a onclick="location.href='/home/wechat'" class="icon icon-home"></a>
+                <a onclick="location.href='/'" class="icon icon-home"></a>
             </div>
 
             <div class="tit"></div>
             <div class="right">
-                <a href="/home/wechat/search" >
+                <a href="/search" >
                     <div class="icon icon-search"></div>
                 </a>
             </div>
@@ -49,7 +49,7 @@
                 <div class="ui-carousel-container">
                     <div class="ui-carousel-viewport">
                         @foreach($recommends as $p)
-                        <a href="/home/wechat/product/{{$p->id}}">
+                        <a href="/product/{{$p->id}}">
                             <img src="{{$p->thumb}}">
                         </a>
                         @endforeach
@@ -67,7 +67,7 @@
             </div>
             <div class="b7">
                 <div class="b70">
-                    <a href="/home/wechat/">
+                    <a href="/">
                         <div class="icon-home"></div>
                     </a>
                 </div>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="b73">
-                    <a href="/home/wechat/cart">
+                    <a href="/cart">
                         <div class="icon-gouwuche"></div>
                     </a>
                 </div>
@@ -99,11 +99,11 @@
             $("#add_to_cart").click(function () {
                 $.ajax({
                     type: 'post',
-                    url: '/home/wechat/cart',
+                    url: '/cart',
                     data: {product_id: "{{$product->id}}"},
                     success: function (data) {
                         console.log(data);
-                        location.href = '/home/wechat/cart';
+                        location.href = '/cart';
                     }
                 })
             })

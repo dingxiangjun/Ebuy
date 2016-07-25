@@ -31,6 +31,17 @@ Route::group(['namespace' => 'Home\Wechat'], function () {
 	    Route::group(['prefix' => 'order'], function () {
 	        //下单
 	        Route::get('checkout', 'OrderController@checkout');
+	        //生成订单,支付
+            Route::post('/', 'OrderController@store');
+            Route::get('pay/{id}', 'OrderController@show_pay');
+
+            //删除订单
+            Route::delete('{id}', 'OrderController@destroy');
+
+            //我的订单
+            Route::get('{id}', 'OrderController@show');
+
+            Route::get('/', 'OrderController@index');
 	    });
 
 	    //地址管理
